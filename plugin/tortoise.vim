@@ -93,10 +93,12 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 if !exists('g:Tortoise_Path')
-  let g:Tortoise_Path = 'c:\Progra~1\TortoiseSVN\bin\TortoiseProc.exe'
+  let g:Tortoise_Path = 'c:\Program File\TortoiseSVN\bin\TortoiseProc.exe'
 endif
 if !filereadable(g:Tortoise_Path)
-  echohl WarningMsg | echo 'Tortoise: '+g:Tortoise_Path+' is not readable'
+  " echohl WarningMsg | echo 'Tortoise: ' . g:Tortoise_Path . ' is not readable' | echohl None
+  echomsg 'Tortoise: ' . g:Tortoise_Path . ' is not readable'
+  finish
 endif
 
 if !exists('g:Tortoise_CloseOnEnd_Arg')
